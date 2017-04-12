@@ -1,39 +1,122 @@
 FORMAT: 1A
 HOST: http://collabration.apiblueprint.org/
 
-# Phase2 API
+# Collabration API
 
 Polls is a simple API allowing consumers to view polls and vote in them.
 
-## Collabration [/api/collabration/files]
+## File Content [/api/collabration/filecontent/{id}]
 
-### Get All Files [GET]
+### Get File Content [GET]
+
+>get file content by file id
 
 + Response 200 (application/json)
 
-        [
-            {
-                "Brand": "PYE",
-                "YearSeason": [
-                    {
-                        "YearSeasonCode": "2017 SS",
-                        "File": [
+        {
+            "resultType": "success",
+            "results": [
+                {
+                    "id": "1s6f1assdf1s655s31s",
+                    "content": {
+                        "header": [
                             {
-                                "Id": "3s4d6fss46d4sfef6v",
-                                "name": "EW44F #1
-                            }, {
-                                "Id": "6341D1S6F1132SE61S",
-                                "name": "EW44F #2"
+                                "id": "1s63f4we65s6fsdf3s",
+                                "text": "COMBO",
+                                "value": "cb",
+                                "type": "HL"
+                            }
+                        ],
+                        "body": [
+                            {
+                                "id": "16ds4fs64f6sd41s3f1",
+                                "line": "1",
+                                "rows": [
+                                    {
+                                        "id": "3s16fsf16846s64vs6fs",
+                                        "row": "1",
+                                        "text": "AAA"
+                                    }
+                                ]
                             }
                         ]
                     }
-                ]
-            }
-        ]
+                }
+            ],
+            "resultMsg": "",
+            "exceptionDetail": ""
+        }
+
+## All Files [/api/collabration/files]
+
+### Get All Files [GET]
+
+>get files by user role
+
++ Response 200 (application/json)
+
+        {
+            "resultType": "success",
+            "results": [
+                {
+                    "Brand": "PYE",
+                    "YearSeasons": [
+                        {
+                            "YearSeasonCode": "2017 SS",
+                            "Files": [
+                                {
+                                    "FileId": "3s4d6fss46d4sfef6v",
+                                    "Filename": "EW44F #1",
+                                    "LastModifiedAt": "2017-04-12 15:23:65"
+                                }, {
+                                    "FileId": "6341D1S6F1132SE61S",
+                                    "Filename": "EW44F #2",
+                                    "LastModifiedAt": "2017-04-10 15:23:65"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "resultMsg": "",
+            "exceptionDetail": ""
+        }
+
+## Recent Files [/api/collabration/files/{pagesize}]
 
 ### Get Recent Files [GET]
 
+>get recent files by user role
+
 + Response 200 (application/json)
+
+        {
+            "resultType": "success",
+            "results": [
+            "results": [
+                {
+                    "Brand": "PYE",
+                    "YearSeasons": [
+                        {
+                            "YearSeasonCode": "2017 SS",
+                            "Files": [
+                                {
+                                    "FileId": "3s4d6fss46d4sfef6v",
+                                    "Filename": "EW44F #1",
+                                    "LastModifiedAt": "2017-04-12 15:23:65"
+                                }, {
+                                    "FileId": "6341D1S6F1132SE61S",
+                                    "Filename": "EW44F #2",
+                                    "LastModifiedAt": "2017-04-10 15:23:65"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "resultMsg": "",
+            "exceptionDetail": ""
+        }
 
 ## Questions Collection [/questions]
 
