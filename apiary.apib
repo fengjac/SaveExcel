@@ -5,11 +5,18 @@ HOST: http://collabration.apiblueprint.org/
 
 Polls is a simple API allowing consumers to view polls and vote in them.
 
-## File Content [/api/collabration/filecontent/{id}]
+## Create New File [/api/collabration/file/creation]
 
-### Get File Content [GET]
+### Create or upload new file [POST]
 
->get file content by file id
+>create or upload a new file
+
++ Request (application/json)
+
+    + Headers
+        
+            Accept: application/json
+            Authorization: Bearer 3sd413asd13a1a36s13a4faf3a1fs3f4as631
 
 + Response 200 (application/json)
 
@@ -18,6 +25,85 @@ Polls is a simple API allowing consumers to view polls and vote in them.
             "results": [
                 {
                     "id": "1s6f1assdf1s655s31s",
+                    "fileName": "EW44F #1",
+                    "content": {
+                        "header": [
+                            {
+                                "id": "1s63f4we65s6fsdf3s",
+                                "text": "COMBO",
+                                "value": "cb",
+                                "type": "HL"
+                            }
+                        ],
+                        "body": [
+                            {
+                                "id": "16ds4fs64f6sd41s3f1",
+                                "line": "1",
+                                "rows": [
+                                    {
+                                        "id": "3s16fsf16846s64vs6fs",
+                                        "row": "1",
+                                        "text": "AAA"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ],
+            "resultMsg": "",
+            "exceptionDetail": ""
+        }
+
+## Fabric Item Master [/api/collabration/fabricitemmaster]
+
+### Get Fabric Item Master [GET]
+
+>get fabric item master data
+
++ Request (application/json)
+
+    + Headers
+        
+            Accept: application/json
+            Authorization: Bearer 3sd413asd13a1a36s13a4faf3a1fs3f4as631
+
++ Response 200 (application/json)
+
+        {
+            "resultType": "success",
+            "results": [
+                {
+                    "type": "HL",
+                    "label": "COMBO",
+                    "value": "cb"
+                }
+            ],
+            "resultMsg": "",
+            "exceptionDetail": ""
+        }
+
+## File Content [/api/collabration/filecontent/{id}]
+
+### Get File Content [GET]
+
+>get file content by file id
+
++ Request (application/json)
+
+    + Headers
+        
+            Accept: application/json
+            Authorization: Bearer 3sd413asd13a1a36s13a4faf3a1fs3f4as631
+
++ Response 200 (application/json)
+
+        {
+            "resultType": "success",
+            "results": [
+                {
+                    "id": "1s6f1assdf1s655s31s",
+                    "fileName": "EW44F #1",
                     "content": {
                         "header": [
                             {
@@ -53,25 +139,32 @@ Polls is a simple API allowing consumers to view polls and vote in them.
 
 >get files by user role
 
++ Request (application/json)
+
+    + Headers
+        
+            Accept: application/json
+            Authorization: Bearer 3sd413asd13a1a36s13a4faf3a1fs3f4as631
+
 + Response 200 (application/json)
 
         {
             "resultType": "success",
             "results": [
                 {
-                    "Brand": "PYE",
-                    "YearSeasons": [
+                    "brand": "PYE",
+                    "yearSeasons": [
                         {
-                            "YearSeasonCode": "2017 SS",
-                            "Files": [
+                            "yearSeasonCode": "2017 SS",
+                            "files": [
                                 {
-                                    "FileId": "3s4d6fss46d4sfef6v",
-                                    "Filename": "EW44F #1",
-                                    "LastModifiedAt": "2017-04-12 15:23:65"
+                                    "fileId": "3s4d6fss46d4sfef6v",
+                                    "filename": "EW44F #1",
+                                    "lastModifiedAt": "2017-04-12 15:23:65"
                                 }, {
-                                    "FileId": "6341D1S6F1132SE61S",
-                                    "Filename": "EW44F #2",
-                                    "LastModifiedAt": "2017-04-10 15:23:65"
+                                    "fileId": "6341D1S6F1132SE61S",
+                                    "filename": "EW44F #2",
+                                    "lastModifiedAt": "2017-04-10 15:23:65"
                                 }
                             ]
                         }
@@ -88,26 +181,32 @@ Polls is a simple API allowing consumers to view polls and vote in them.
 
 >get recent files by user role
 
++ Request (application/json)
+
+    + Headers
+        
+            Accept: application/json
+            Authorization: Bearer 3sd413asd13a1a36s13a4faf3a1fs3f4as631
+
 + Response 200 (application/json)
 
         {
             "resultType": "success",
             "results": [
-            "results": [
                 {
-                    "Brand": "PYE",
-                    "YearSeasons": [
+                    "brand": "PYE",
+                    "yearSeasons": [
                         {
-                            "YearSeasonCode": "2017 SS",
-                            "Files": [
+                            "yearSeasonCode": "2017 SS",
+                            "files": [
                                 {
-                                    "FileId": "3s4d6fss46d4sfef6v",
-                                    "Filename": "EW44F #1",
-                                    "LastModifiedAt": "2017-04-12 15:23:65"
+                                    "fileId": "3s4d6fss46d4sfef6v",
+                                    "filename": "EW44F #1",
+                                    "lastModifiedAt": "2017-04-12 15:23:65"
                                 }, {
-                                    "FileId": "6341D1S6F1132SE61S",
-                                    "Filename": "EW44F #2",
-                                    "LastModifiedAt": "2017-04-10 15:23:65"
+                                    "fileId": "6341D1S6F1132SE61S",
+                                    "filename": "EW44F #2",
+                                    "lastModifiedAt": "2017-04-10 15:23:65"
                                 }
                             ]
                         }
@@ -119,32 +218,6 @@ Polls is a simple API allowing consumers to view polls and vote in them.
         }
 
 ## Questions Collection [/questions]
-
-### List All Questions [GET]
-
-+ Response 200 (application/json)
-
-        [
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 2048
-                    }, {
-                        "choice": "Python",
-                        "votes": 1024
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 512
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 256
-                    }
-                ]
-            }
-        ]
 
 ### Create a New Question [POST]
 
