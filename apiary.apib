@@ -9,7 +9,39 @@ Polls is a simple API allowing consumers to view polls and vote in them.
 
 ### Create or upload new file [POST]
 
->create or upload a new file
+>Get element value by name in API:
+
+<
+form action="/api/collabration/file/creation" method="post" **enctype="multipart/form-data"**>
+
+<
+div>
+
+<
+input type="file" name="**_uploadExcelFile_**" />
+
+<
+input type="text" name="**_nameField_**" />
+
+<
+input type="text" name="**_customerField_**" />
+
+<
+input type="text" name="**_brandField_**" />
+
+<
+input type="text" name="**_yearField_**" />
+
+<
+input type="text" name="**_seasonField_**" />
+
+<
+/div>
+
+<
+input type="submit" value="submit" />  
+<
+/form>
 
 + Request
 
@@ -17,7 +49,7 @@ Polls is a simple API allowing consumers to view polls and vote in them.
         
             Accept: application/json
             Authorization: Bearer 3sd413asd13a1a36s13a4faf3a1fs3f4as631,
-            Content-Type : multipart/form-data; boundary=----WebKitFormBoundaryTweCzCAcmDORqiov (browser generated vaue)
+            Content-Type : multipart/form-data; boundary
 
 + Response 200 (application/json)
 
@@ -26,7 +58,11 @@ Polls is a simple API allowing consumers to view polls and vote in them.
             "results": [
                 {
                     "id": "1s6f1assdf1s655s31s",
-                    "fileName": "EW44F #1",
+                    "name": "EW44F #1",
+                    "customerCode": "EBD",
+                    "brandCode": "PYE",
+                    "year": "2017",
+                    "seasonCode": "SS",
                     "content": {
                         "header": [
                             {
@@ -104,7 +140,11 @@ Polls is a simple API allowing consumers to view polls and vote in them.
             "results": [
                 {
                     "id": "1s6f1assdf1s655s31s",
-                    "fileName": "EW44F #1",
+                    "name": "EW44F #1",
+                    "customerCode": "EBD",
+                    "brandCode": "PYE",
+                    "year": "2017",
+                    "seasonCode": "SS",
                     "content": {
                         "header": [
                             {
@@ -153,14 +193,17 @@ Polls is a simple API allowing consumers to view polls and vote in them.
             "resultType": "success",
             "results": [
                 {
-                    "brand": "PYE",
+                    "customerCode": "EBD",
+                    "brandCode": "PYE",
                     "yearSeasons": [
                         {
+                            "year": "2017",
+                            "seasonCode": "SS",
                             "yearSeasonCode": "2017 SS",
                             "files": [
                                 {
                                     "fileId": "3s4d6fss46d4sfef6v",
-                                    "filename": "EW44F #1",
+                                    "name": "EW44F #1",
                                     "lastModifiedAt": "2017-04-12 15:23:65"
                                 }, {
                                     "fileId": "6341D1S6F1132SE61S",
