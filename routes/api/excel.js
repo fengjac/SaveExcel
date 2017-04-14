@@ -1,5 +1,6 @@
 import Express from 'express';
 import Busboy from 'busboy';
+import { log4js_logger } from '../../app.js';
 import '../../App_Code/stringExt.js';
 import { oneExcelToJson } from '../../App_Code/excelToJson.js';
 import { readAllExcelAsync } from '../../App_Code/readExcel.js';
@@ -15,12 +16,15 @@ router.use('*', (req, res, next) => {
 });
 
 router.get('/', (req, res, next) => {
+	let logger = log4js_logger('api/excel');
+	logger.info('api get success')
 	res.render('index', { title: 'Upload' });
 });
 
 router.post('/', (req, res, next) => {
 	let busboy = new Busboy({ headers: req.headers });
 	let filesData = [];
+	let nameField = '', customerField = '', brandField = '', yearField = '', seasonField = '';
 
 	busboy.on('file', (fieldname, file, filename, encoding, mimetype) => {
 		let chunks = [];
@@ -39,7 +43,23 @@ router.post('/', (req, res, next) => {
 		});
 	});
 
-	busboy.on('field', (fieldname, val, fieldnameTruncated, valTruncated, encoding, mimetype) => { });
+	busboy.on('field', (fieldname, val, fieldnameTruncated, valTruncated, encoding, mimetype) => {
+		console.log('fieldname:' + fieldname + ', ' + 'value:' + val);
+		switch(fieldname) {
+			case 'nameField':
+				nameField = val;
+			case 'customerField':
+				customerField = val;
+			case 'brandField':
+				brandField = val;
+			case 'yearField':
+				yearField = val;
+			case 'seasonField':
+				seasonField = val;
+			default:
+				break;
+		}
+	});
 
 	busboy.on('partsLimit', () => { });
 
@@ -58,6 +78,7 @@ router.post('/', (req, res, next) => {
 				return saveAllExcel(datas);
 			})
 			.then(() => {
+				// logger1.info('upload success!!');
 				res.end('success');
 			})
 			.catch((error) => {
