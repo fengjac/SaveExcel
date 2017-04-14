@@ -63,6 +63,8 @@ input type="submit" value="submit" />
                     "brandCode": "PYE",
                     "year": "2017",
                     "seasonCode": "SS",
+                    "lastModifiedAt": "2017-04-28 12:58:32",
+                    "createById": "3sdf4631we6f1s6aasj",
                     "content": {
                         "header": [
                             {
@@ -110,7 +112,7 @@ input type="submit" value="submit" />
             "results": [
                 {
                     "type": "HL",
-                    "label": "COMBO",
+                    "text": "COMBO",
                     "value": "cb"
                 }
             ],
@@ -138,11 +140,6 @@ input type="submit" value="submit" />
             "results": [
                 {
                     "id": "1s6f1assdf1s655s31s",
-                    "name": "EW44F #1",
-                    "customerCode": "EBD",
-                    "brandCode": "PYE",
-                    "year": "2017",
-                    "seasonCode": "SS",
                     "content": {
                         "header": [
                             {
@@ -254,6 +251,98 @@ input type="submit" value="submit" />
                             ]
                         }
                     ]
+                }
+            ],
+            "resultMsg": "",
+            "exceptionDetail": ""
+        }
+        
+## Save File Content [/api/collabration/file/save]
+
+### Save File Content [POST]
+
++ Request (application/json)
+
+    + Headers
+        
+            Accept: application/json
+            Authorization: Bearer 3sd413asd13a1a36s13a4faf3a1fs3f4as631
+            
+    + Body
+    
+            {
+                "id": "1s6f1assdf1s655s31s",
+                "content": {
+                    "header": [
+                        {
+                            "id": "1s63f4we65s6fsdf3s",
+                            "value": "cb"
+                        }
+                    ],
+                    "body": [
+                        {
+                            "id": "16ds4fs64f6sd41s3f1",
+                            "line": "1",
+                            "rows": [
+                                {
+                                    "id": "3s16fsf16846s64vs6fs",
+                                    "row": "1",
+                                    "text": "BBB"
+                                }
+                            ]
+                        },
+                        {
+                            "line": "2",
+                            "rows": [
+                                {
+                                    "row": "1",
+                                    "text": "CCC"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+            
++ Response 200 (application/json)
+
+        {
+            "resultType": "SUCCESS",
+            "results": [
+                {
+                    "id": "1s6f1assdf1s655s31s",
+                    "content": {
+                        "header": [
+                            {
+                                "id": "1s63f4we65s6fsdf3s",
+                                "value": "cb"
+                            }
+                        ],
+                        "body": [
+                            {
+                                "id": "16ds4fs64f6sd41s3f1",
+                                "line": "1",
+                                "rows": [
+                                    {
+                                        "id": "3s16fsf16846s64vs6fs",
+                                        "row": "1",
+                                        "text": "BBB"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "16ds4fs64f6sd41s3f1",
+                                "line": "2",
+                                "rows": [
+                                    {
+                                        "id": "3s16fsf16846s64vs6fs",
+                                        "row": "1",
+                                        "text": "CCC"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
                 }
             ],
             "resultMsg": "",
